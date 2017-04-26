@@ -1,0 +1,17 @@
+runtime/*
+!/runtime/.keep
+runtime
+.idea
+log
+
+/vendor/
+!/vendor/opensearch
+
+.env*
+!.env.example
+.DS_Store
+./public/uploads/
+
+uploads/head/
+uploads/licensed/
+uploads/word/
