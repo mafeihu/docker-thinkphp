@@ -3,6 +3,9 @@
 创建配置文件
 
   cp .env.example .env
+编译文件
+
+  docker-compose build
 
 启动服务
 
