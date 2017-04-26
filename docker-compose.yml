@@ -1,0 +1,25 @@
+version: '2'
+volumes:
+  mysql-data-volume:
+services:
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data-volume:/var/lib/mysql
+  web:
+    image: nginx
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./public:/usr/src/app/public
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    env_file:
+      - .env
